@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native"
 
 const options = ["Pomodoro", "Short Break", "Long Break"]
 
-export default function Header({currentTime, setCurrentTime, setTime, setIsActive}) {
+export default function Header({ currentTime, setCurrentTime, setTime, setIsActive }) {
 
     function handlePress(index) {
         const newTime = index === 0 ? 25 : index === 1 ? 5 : 15
@@ -17,7 +17,7 @@ export default function Header({currentTime, setCurrentTime, setTime, setIsActiv
             {options.map((item, index) => (
                 <TouchableOpacity
                     key={index}
-                    style={[styles.itemStyle, currentTime !== index && {borderColor: "transparent"}]}
+                    style={[styles.itemStyle, currentTime !== index && { borderColor: "transparent" }]}
                     onPress={() => handlePress(index)}
                 >
                     <Text style={styles.itemTextStyle}>{item}</Text>

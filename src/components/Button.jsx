@@ -4,18 +4,18 @@ import { Audio } from "expo-av"
 
 export default function MainButton({ time, setTime, isWorking, setIsWorking, isActive, setIsActive }) {
 
-    useEffect(()=> {
+    useEffect(() => {
         let interval = null;
 
-        if(isActive) {
+        if (isActive) {
             interval = setInterval(() => {
-                setTime(time -1)
+                setTime(time - 1)
             }, 1000)
         } else {
             clearInterval(interval)
         }
 
-        if(time === 0) {
+        if (time === 0) {
             setIsActive(false)
             setIsWorking((prev) => !prev)
             setTime(isWorking ? 300 : 1500)
@@ -37,9 +37,9 @@ export default function MainButton({ time, setTime, isWorking, setIsWorking, isA
     }
 
     return (
-            <TouchableOpacity style={styles.buttonContainer} onPress={handleStartStop}>
-                <Text style={styles.buttonText} >{isActive ? "STOP" : "START"}</Text>
-            </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonContainer} onPress={handleStartStop}>
+            <Text style={styles.buttonText} >{isActive ? "STOP" : "START"}</Text>
+        </TouchableOpacity>
     )
 }
 
